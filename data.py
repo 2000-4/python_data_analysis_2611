@@ -4,6 +4,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
+
+# =====================================
+# [0] 라이브러리 import, 출력 옵션(선택)
+# =====================================
+
 pd.set_option('display.unicode.east_asian_width', True)
 pd.set_option('display.unicode.ambiguous_as_wide', True)
 pd.set_option('display.width', 140)
@@ -12,7 +17,9 @@ pd.set_option('display.max_rows', 200)
 
 import numpy as np
 
-# ====== [1] data ready =======
+# =====================================
+# [1] 데이터 준비
+# =====================================
 data = {
     '측정일': [
         '2026-02-01','2026-02-01','2026-02-02',
@@ -69,3 +76,23 @@ data = {
         1,0,5,1,0,3,np.nan
     ],
 }
+
+df = pd.DataFrame(data)
+
+# =====================================
+# [2] 데이터 선택
+# =====================================
+
+print('=====================================')
+print('[2] 데이터 탐색')
+print('=====================================')
+
+print('\n[head()]')
+print(df.head())
+
+print('\n[info()] / 데이터 구조 확인')
+print(df.info())
+
+print('\n[describe] / 숫자 컬럼 요약')
+num_cols = ['나이','SBP(수축기)','나이','심박수','공복혈당','흡연','운동빈도(주)']
+print(df[num_cols].describe)
